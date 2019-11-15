@@ -1,0 +1,6 @@
+uuid: 128ab1a9-408d-449b-85ce-c8cc701b2fd6
+langcode: en
+status: true
+dependencies: {  }
+id: manager-shortcuts
+label: 'Manager Shortcuts'

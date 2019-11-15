@@ -1,0 +1,171 @@
+{
+    "name": "optasy/drupal8-boilerplate",
+    "description": "optasy template for Drupal 8 projects with composer-based workflow",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "optasy",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "dinbror/blazy",
+                "version": "1.8.2",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/dinbror/blazy/archive/1.8.2.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "kenwheeler/slick",
+                "version": "v1.8.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/kenwheeler/slick/archive/v1.8.1.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0",
+        "drupal-composer/drupal-scaffold": "^2.0.0",
+        "cweagans/composer-patches": "^1.5.0",
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "drupal/core": "8.*",
+        "drupal/recurring_period": "^1.0@alpha",
+        "drupal/flags": "^1.0@beta",
+        "drupal/flags_ui": "^1.0@beta",
+        "drupal/interval": "^1.2",
+        "drupal/address": "^1.7",
+        "drupal/bootstrap": "^3.20",
+        "drupal/bootstrap_library": "^1.11",
+        "drupal/adminimal_theme": "^1.5",
+        "drupal/addtocalendar": "^3.1",
+        "drupal/backup_migrate": "^4.0",
+        "drupal/blazy": "^1.0@RC",
+        "drupal/bootstrap_layouts": "^5.1",
+        "drupal/calendar": "1.x-dev",
+        "drupal/ctools": "^3.2",
+        "drupal/ds": "^3.4",
+        "drupal/flag": "^4.0@alpha",
+        "drupal/hierarchical_taxonomy_menu": "^1.37",
+        "drupal/libraries": "^3.0@alpha",
+        "drupal/menu_block": "^1.5",
+        "drupal/menu_trail_by_path": "^1.1",
+        "drupal/paragraphs": "^1.9",
+        "drupal/pathauto": "^1.3",
+        "drupal/redirect": "^1.4",
+        "drupal/rules": "^3.0",
+        "drupal/shortcutperrole": "^1.0@RC",
+        "drupal/slick": "^1.1",
+        "drupal/slick_views": "^1.0",
+        "drupal/superfish": "^1.3",
+        "drupal/taxonomy_access_fix": "^2.6",
+        "drupal/taxonomy_menu": "^3.4",
+        "drupal/token": "^1.5",
+        "drupal/typed_data": "^1.0",
+        "drupal/views_extras": "^1.1",
+        "drupal/views_templates": "^1.0@alpha",
+        "drupal/admin_toolbar": "^1.27",
+        "dinbror/blazy": "1.8.2",
+        "kenwheeler/slick": "v1.8.1",
+        "drupal/adminimal_admin_toolbar": "^1.9",
+        "drupal/structure_sync": "^1.16",
+        "drupal/poll": "^1.2",
+        "drupal/scheduler": "^1.1",
+        "drupal/devel": "^2.1",
+        "drupal/views_bootstrap": "^4.1",
+        "drupal/bootstrap_barrio": "4.x-dev",
+        "drupal/block_class": "^1.0",
+        "drupal/easy_breadcrumb": "^1.12",
+        "drupal/views_taxonomy_term_name_into_id": "^1.0",
+        "drupal/simplenews": "^2.0",
+        "drupal/mimemail": "^1.0",
+        "drupal/xmlsitemap": "^1.0",
+        "drupal/optional_end_date": "^1.0",
+        "drupal/rabbit_hole": "^1.0",
+        "drupal/editor_advanced_link": "^1.4",
+        "drupal/menu_link_attributes": "^1.0",
+        "drupal/entity": "^1.0",
+        "drupal/profile": "^1.0",
+        "drupal/inline_entity_form": "^1.0",
+        "drupal/commerce": "2.13",
+        "drupal/focal_point": "^1.2",
+        "drupal/linkit": "^5.0",
+        "drupal/simple_sitemap": "^3.4",
+        "drupal/sitemap": "^1.5",
+        "drupal/asset_injector": "^2.4",
+        "drupal/ultimate_cron": "^2.0",
+        "drupal/postal_code": "1.x-dev",
+        "drupal/externalauth": "^1.2"
+    },
+    "require-dev": {
+        "neronmoon/scriptsdev": "^0.1.0",
+        "behat/behat": "^3.1",
+        "drupal/drupal-extension": "^3.2",
+        "behat/mink": "~1.7",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "~1.0.2",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "phpunit/phpunit": "7.*",
+        "symfony/css-selector": "~2.8",
+        "squizlabs/php_codesniffer": "2.*",
+        "drupal/coder": "8.*",
+        "devinci/devinci-behat-extension": "dev-master",
+        "rdx/behat-variables": "^1.2"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-install-cmd": [
+          "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+          "sh ./scripts/composer/post-install.sh"
+        ],
+        "post-update-cmd": [
+          "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ]
+    },
+    "config": {
+      "bin-dir": "bin/"
+    },
+    "extra": {
+        "scripts-dev": {
+            "post-install-cmd": [
+              "sh ./scripts/tools/setup.sh"
+            ]
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        },
+        "patches": {
+          "drupal/calendar": {
+            "Calendar date-range fix #2699477": "https://www.drupal.org/files/issues/2018-04-06/calendar-date_range-2699477-71.patch"
+          },
+          "drupal/core": {
+            "Call to a member function transformDimensions() on null in template_preprocess": "https://www.drupal.org/files/issues/2018-04-04/2957368_0.patch"
+          }
+        },
+        "enable-patching": true
+    }
+}

@@ -1,0 +1,30 @@
+uuid: d931311e-681a-4b27-a414-edbbc9c31c05
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: promote_to_home_page_carousel
+label: 'Promote to Home page carousel'
+bundles:
+  - post
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Flag this item'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Unflag this item'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: true
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

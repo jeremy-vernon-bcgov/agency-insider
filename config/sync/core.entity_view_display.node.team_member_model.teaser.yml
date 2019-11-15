@@ -1,0 +1,48 @@
+uuid: b23cde2c-224e-42f8-b38a-71c205ed0a29
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.team_member_model.body
+    - field.field.node.team_member_model.field_email
+    - field.field.node.team_member_model.field_job_title
+    - field.field.node.team_member_model.field_media_featured_photo
+    - field.field.node.team_member_model.field_phone
+    - field.field.node.team_member_model.field_reports_to
+    - field.field.node.team_member_model.field_team
+    - field.field.node.team_member_model.field_team_leader
+    - node.type.team_member_model
+  module:
+    - user
+id: node.team_member_model.teaser
+targetEntityType: node
+bundle: team_member_model
+mode: teaser
+content:
+  field_job_title:
+    type: entity_reference_label
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+  field_reports_to:
+    type: entity_reference_label
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_email: true
+  field_media_featured_photo: true
+  field_phone: true
+  field_team: true
+  field_team_leader: true
+  links: true

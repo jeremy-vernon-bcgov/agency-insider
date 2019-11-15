@@ -1,0 +1,30 @@
+uuid: 70e025f8-2ee1-4058-b0d4-66c61b416a7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news
+  module:
+    - system
+    - views
+  theme:
+    - agency_theme
+id: views_block__news_homepage_carousel
+theme: agency_theme
+region: hero
+weight: -16
+provider: null
+plugin: 'views_block:news-homepage_carousel'
+settings:
+  id: 'views_block:news-homepage_carousel'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

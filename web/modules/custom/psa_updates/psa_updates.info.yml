@@ -1,0 +1,4 @@
+name: 'PSA Updates'
+description: 'Used for several updates for PSA Agency system'
+core: '8.x'
+type: module

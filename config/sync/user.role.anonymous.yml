@@ -1,0 +1,25 @@
+uuid: 177062ce-17ae-4f48-9079-bf946f67d685
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'access polls'
+  - 'access site-wide contact form'
+  - 'cancel own vote'
+  - 'search content'
+  - 'subscribe to newsletters'
+  - 'view commerce_product'
+  - 'view media'
+  - 'view paragraph content landing_page_sidebar'
+  - 'view terms in division'
+  - 'view terms in post_category'
+  - 'view terms in team_member'

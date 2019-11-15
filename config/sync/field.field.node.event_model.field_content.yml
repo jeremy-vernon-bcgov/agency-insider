@@ -1,0 +1,21 @@
+uuid: a2644bea-81a1-4452-b180-a3bd9cb2f9a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content
+    - node.type.event_model
+  module:
+    - text
+id: node.event_model.field_content
+field_name: field_content
+entity_type: node
+bundle: event_model
+label: Content
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

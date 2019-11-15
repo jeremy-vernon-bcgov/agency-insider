@@ -1,0 +1,11 @@
+uuid: 7d8e507c-9b5d-4490-bca6-56d9d7d8ef97
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.video
+id: media_type_video
+action: page_not_found
+allow_override: 0
+redirect: /admin/content/media
+redirect_code: 301

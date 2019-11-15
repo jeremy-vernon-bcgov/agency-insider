@@ -1,0 +1,27 @@
+uuid: 390d9845-a0f8-40c9-9e53-b55189208c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.only_icon
+    - field.field.taxonomy_term.post_category.field_icon
+    - image.style.our_people
+    - taxonomy.vocabulary.post_category
+  module:
+    - image
+id: taxonomy_term.post_category.only_icon
+targetEntityType: taxonomy_term
+bundle: post_category
+mode: only_icon
+content:
+  field_icon:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: our_people
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  description: true

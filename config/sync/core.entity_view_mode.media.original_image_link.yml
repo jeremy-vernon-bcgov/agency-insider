@@ -1,0 +1,10 @@
+uuid: a060f7c4-3c39-4516-b41e-a5d859c37a6f
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.original_image_link
+label: 'Original Image - Link'
+targetEntityType: media
+cache: true

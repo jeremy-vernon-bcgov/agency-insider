@@ -1,0 +1,14 @@
+uuid: 5b3b123b-67b2-4e77-a7fb-d7cb793b96dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.divistional_manager
+  module:
+    - user
+id: user_add_role_action.divistional_manager
+label: 'Add the Divisional Manager role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: divistional_manager

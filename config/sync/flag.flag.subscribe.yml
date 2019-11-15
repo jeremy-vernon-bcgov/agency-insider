@@ -1,0 +1,30 @@
+uuid: 779fa6f6-d453-402e-8c75-e0956eda1e6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: subscribe
+label: Subscribe
+bundles:
+  - post
+entity_type: node
+global: false
+weight: 0
+flag_short: Subscribe
+flag_long: ''
+flag_message: ''
+unflag_short: Unsubscribe
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

@@ -1,0 +1,29 @@
+uuid: dff85bf0-f26d-4ab4-9827-d1e63309d048
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_post_category
+    - node.type.post
+    - taxonomy.vocabulary.post_category
+id: node.post.field_post_category
+field_name: field_post_category
+entity_type: node
+bundle: post
+label: 'Post category'
+description: 'Select the post categories.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      post_category: post_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: b1d73f41-9d2d-4999-bedb-f49cebf28782
+langcode: en
+status: true
+dependencies: {  }
+name: home_news
+label: 'Home News'
+effects:
+  f6e91411-a8a5-40b5-9f1e-d3eba57ed545:
+    uuid: f6e91411-a8a5-40b5-9f1e-d3eba57ed545
+    id: image_scale
+    weight: 1
+    data:
+      width: 1300
+      height: null
+      upscale: false
+  33cdc74e-86f8-4357-be46-10fb02b5e95c:
+    uuid: 33cdc74e-86f8-4357-be46-10fb02b5e95c
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 1300
+      height: 400
+      anchor: center-center

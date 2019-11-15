@@ -1,0 +1,25 @@
+uuid: fefa74dc-7dcd-44f2-9455-4e980a029e83
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+  module:
+    - block_content
+  theme:
+    - agency_theme
+id: backgroundheader
+theme: agency_theme
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+settings:
+  id: 'block_content:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+  label: 'Background Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

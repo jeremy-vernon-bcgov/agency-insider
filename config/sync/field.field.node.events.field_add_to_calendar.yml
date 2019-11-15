@@ -1,0 +1,57 @@
+uuid: dab34470-72d9-4420-b2a0-380e8c36fcb1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_add_to_calendar
+    - node.type.events
+  module:
+    - addtocalendar
+id: node.events.field_add_to_calendar
+field_name: field_add_to_calendar
+entity_type: node
+bundle: events
+label: 'Add to calendar'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Add to Calendar'
+  off_label: 'Add to Calendar Disabled'
+  addtocalendar_show: 1
+  addtocalendar_settings:
+    style: blue
+    atc_title:
+      field: token
+      tokenized: Title
+    atc_description:
+      field: token
+      tokenized: Description
+    atc_location:
+      field: token
+      tokenized: Location
+    atc_organizer:
+      field: token
+      tokenized: 'BC Public Service Intranet'
+    atc_organizer_email:
+      field: token
+      tokenized: karen.smallwood@gov.bc.ca
+    atc_date_start:
+      field: token
+      tokenized: ''
+    atc_date_end:
+      field: token
+      tokenized: ''
+    atc_privacy: public
+    data_secure: auto
+    data_calendars:
+      iCalendar: iCalendar
+      'Google Calendar': 'Google Calendar'
+      Outlook: Outlook
+      'Outlook Online': 'Outlook Online'
+      'Yahoo! Calendar': 0
+field_type: add_to_calendar_field

@@ -1,0 +1,8 @@
+uuid: 21288e4b-91b9-4a8d-ac9c-363d69a11e42
+langcode: en
+status: true
+dependencies: {  }
+name: 'Media Folder'
+vid: media_folder
+description: 'Use to add the Media folders to organize the Media files.'
+weight: 0

@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Provides installation, update hooks for psa_updates module.
+ */
+
+/**
+ * Uninstall news article content type and it's dependencies.
+ */
+function psa_updates_update_8101() {
+  // Delete all nodes of given content type.
+  $storage_handler = \Drupal::entityTypeManager()
+    ->getStorage('node');
+  $nodes = $storage_handler->loadByProperties(['type' => 'article']);
+  $storage_handler->delete($nodes);
+
+  // Delete content type.
+  $content_type = \Drupal::entityTypeManager()
+    ->getStorage('node_type')
+    ->load('article');
+  $content_type->delete();
+}

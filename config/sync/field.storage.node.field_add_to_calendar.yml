@@ -1,0 +1,19 @@
+uuid: 4799d648-5e05-4c12-a889-77ef23c96e8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - addtocalendar
+    - node
+id: node.field_add_to_calendar
+field_name: field_add_to_calendar
+entity_type: node
+type: add_to_calendar_field
+settings: {  }
+module: addtocalendar
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

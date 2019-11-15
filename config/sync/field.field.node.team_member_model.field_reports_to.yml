@@ -1,0 +1,27 @@
+uuid: 6f8cd04c-3ee6-4d53-b4b9-5cdf78fc27c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reports_to
+    - node.type.team_member_model
+id: node.team_member_model.field_reports_to
+field_name: field_reports_to
+entity_type: node
+bundle: team_member_model
+label: 'Reports to'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      team_member_model: team_member_model
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

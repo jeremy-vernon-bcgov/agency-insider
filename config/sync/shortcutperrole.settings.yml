@@ -1,0 +1,6 @@
+role:
+  anonymous: default
+  authenticated: default
+  administrator: default
+  we: manager-shortcuts
+  divistional_manager: division-short

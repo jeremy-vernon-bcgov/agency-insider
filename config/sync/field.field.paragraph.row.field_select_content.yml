@@ -1,0 +1,21 @@
+uuid: e85ee334-14c3-44d5-8d2d-805ec213396e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_select_content
+    - paragraphs.paragraphs_type.row
+id: paragraph.row.field_select_content
+field_name: field_select_content
+entity_type: paragraph
+bundle: row
+label: 'Select Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: entity_reference

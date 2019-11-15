@@ -1,0 +1,27 @@
+uuid: 10ee77a0-bc68-4a5d-8e59-73f1c81eb4a9
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agency_theme
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: agency_theme_page_title
+theme: agency_theme
+region: content
+weight: -10
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Executive Messages'
+  provider: core
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "/taxonomy/term/*/edit\r\n/team-members/*\r\n<front>"
+    negate: true
+    context_mapping: {  }

@@ -1,0 +1,11 @@
+uuid: 5793020d-ceea-40ed-988c-2f2eb82874e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.file
+id: media_type_file
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

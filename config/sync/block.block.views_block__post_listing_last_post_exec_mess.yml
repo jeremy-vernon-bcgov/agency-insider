@@ -1,0 +1,42 @@
+uuid: 898dc736-377d-4d4e-8ede-f3f8b024a1bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.post_listing
+  module:
+    - block_class
+    - node
+    - system
+    - views
+  theme:
+    - agency_theme
+third_party_settings:
+  block_class:
+    classes: 'col-md-6 col-xs-12'
+id: views_block__post_listing_last_post_exec_mess
+theme: agency_theme
+region: content
+weight: -6
+provider: null
+plugin: 'views_block:post_listing-last_post_exec_mess'
+settings:
+  id: 'views_block:post_listing-last_post_exec_mess'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

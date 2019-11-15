@@ -1,0 +1,31 @@
+uuid: 1a92891a-9b93-4d8a-af49-ca55a9b16f56
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.team_members
+  module:
+    - system
+    - views
+  theme:
+    - agency_theme
+id: views_block__team_members_team_leader
+theme: agency_theme
+region: sidebar_first
+weight: -11
+provider: null
+plugin: 'views_block:team_members-team_leader'
+settings:
+  id: 'views_block:team_members-team_leader'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/team-members/*'
+    negate: false
+    context_mapping: {  }

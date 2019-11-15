@@ -1,0 +1,28 @@
+uuid: aef585ed-ecdb-4066-9fab-1d4492d72a1b
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - media
+  module:
+    - file
+    - media
+_core:
+  default_config_hash: 4GNilUMnj0opT050eZIkWhkfuzu69ClyEr-cHxofjQw
+id: media.field_media_file
+field_name: field_media_file
+entity_type: media
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: 50
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

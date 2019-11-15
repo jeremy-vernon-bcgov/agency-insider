@@ -1,0 +1,28 @@
+uuid: f398f5bc-185b-49c9-b803-e378259f02a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_featured_photo
+    - media.type.image
+    - node.type.post
+id: node.post.field_media_featured_photo
+field_name: field_media_featured_photo
+entity_type: node
+bundle: post
+label: 'Featured photo'
+description: 'Displayed on the Post Listing pages. Please use 4:3, 16:9 images ratio, the images will be scaled and cropped to 1200×600 pixels.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

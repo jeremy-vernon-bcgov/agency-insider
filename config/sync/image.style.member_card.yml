@@ -1,0 +1,15 @@
+uuid: 75bd3ef4-8022-45f1-859a-8de6ec3c2351
+langcode: en
+status: true
+dependencies: {  }
+name: member_card
+label: 'Member Card'
+effects:
+  6f7eb904-5040-47cb-b4b8-01bacd0063ec:
+    uuid: 6f7eb904-5040-47cb-b4b8-01bacd0063ec
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 360
+      height: 360
+      anchor: center-center

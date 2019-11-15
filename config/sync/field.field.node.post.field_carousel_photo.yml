@@ -1,0 +1,28 @@
+uuid: a8b95773-8b64-450e-9070-0fefa7c9274c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_carousel_photo
+    - media.type.image
+    - node.type.post
+id: node.post.field_carousel_photo
+field_name: field_carousel_photo
+entity_type: node
+bundle: post
+label: 'Carousel photo'
+description: 'Displayed on the front page Carousel item. Please use 3:4 images ratio, the images will be scaled and cropped to 650 x 800 pixels.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

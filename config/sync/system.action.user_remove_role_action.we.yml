@@ -1,0 +1,14 @@
+uuid: f340860e-d7bd-4672-a6a4-c2fa144fa875
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.we
+  module:
+    - user
+id: user_remove_role_action.we
+label: 'Remove the Web Manager role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: we

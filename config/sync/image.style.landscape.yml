@@ -1,0 +1,15 @@
+uuid: 565c7609-c156-41d4-b7a6-db9e112ce6f3
+langcode: en
+status: true
+dependencies: {  }
+name: landscape
+label: 'Landscape (1200×600)'
+effects:
+  997959d3-a095-47ee-b3f6-3ce6b125fca6:
+    uuid: 997959d3-a095-47ee-b3f6-3ce6b125fca6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 600
+      anchor: center-center

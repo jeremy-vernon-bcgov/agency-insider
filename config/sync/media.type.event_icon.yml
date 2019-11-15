@@ -1,0 +1,13 @@
+uuid: 7c8aca1b-b1a4-4b0c-a297-764a298bf024
+langcode: en
+status: true
+dependencies: {  }
+id: event_icon
+label: 'Event Icon'
+description: 'Use local Icon for reusable media.'
+source: image
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_image
+field_map: {  }

@@ -1,0 +1,490 @@
+diff --git a/calendar.theme.inc b/calendar.theme.inc
+index 6b9ed99..93662c7 100644
+--- a/calendar.theme.inc
++++ b/calendar.theme.inc
+@@ -571,7 +571,7 @@ function template_preprocess_calendar_item(&$vars) {
+ 
+   $multiday_hidden = !empty($vars['view']->style_options['multiday_hidden']) ? $vars['view']->style_options['multiday_hidden'] : [];
+ 
+-  if (!empty($item->getRenderedFields()) && empty($item->getIsMultiDay())) {
++  if (!empty($item->getRenderedFields())) {
+     $vars['rendered_fields'] = [$item->getRenderedFields()];
+   }
+   foreach ($vars['view']->field as $id => $field) {
+diff --git a/calendar.views.inc b/calendar.views.inc
+index 7eaff3c..d1737de 100644
+--- a/calendar.views.inc
++++ b/calendar.views.inc
+@@ -64,28 +64,36 @@ function _calendar_create_field_arguments($field_id, $group = '') {
+  * Implements hook_field_views_data_alter().
+  */
+ function calendar_field_views_data_alter(array &$data, FieldStorageConfigInterface $field_storage) {
+-  foreach ($data as $table_name => $table_data) {
+-    // Set the 'datetime' filter type.
+-    if (isset($data[$table_name][$field_storage->getName() . '_value'])
+-      && $data[$table_name][$field_storage->getName() . '_value']['filter']['id'] == 'datetime') {
+-      // Create year, month, and day arguments.
+-      $group = $data[$table_name][$field_storage->getName() . '_value']['group'];
+-      $arguments = [
+-        // Argument type => help text.
+-        'year_week' => t('Calendar Date in the form of CCYYW.'),
+-      ];
+-      foreach ($arguments as $argument_type => $help_text) {
+-        $data[$table_name][$field_storage->getName() . '_value_' . $argument_type] = [
+-          'title' => 'Calendar ' . $field_storage->getLabel() . ' (' . $argument_type . ')',
+-          'help' => $help_text,
+-          'argument' => [
+-            'field' => $field_storage->getName() . '_value',
+-            'id' => 'datetime_' . $argument_type,
+-            'entity_type' => $field_storage->getTargetEntityTypeId(),
+-            'field_name' => $field_storage->getName(),
+-          ],
+-          'group' => $group,
++  $supported_types = ['datetime', 'datetime_range'];
++  foreach ($data as $table_name => &$table_data) {
++    foreach (['value', 'end_value'] as $column_name) {
++      // Set the 'datetime' filter type.
++      $views_field = $field_storage->getName() . '_' . $column_name;
++      if (isset($table_data[$views_field]) && in_array($table_data[$views_field]['filter']['id'], $supported_types)) {
++        // Create year, month, and day arguments.
++        $group = $table_data[$field_storage->getName() . '_value']['group'];
++        $arguments = [
++          // Argument type => help text.
++          'year_week' => t('Calendar Date in the form of CCYYW.'),
+         ];
++        foreach ($arguments as $argument_type => $help_text) {
++          $column_name_text = $column_name === $field_storage->getMainPropertyName() ? '' : ':' . $column_name;
++          $table_data[$views_field . '_' . $argument_type] = [
++            'title' => t('Calendar @label@column (@argument)', [
++              '@label' => $field_storage->getLabel(),
++              '@column' => $column_name_text,
++              '@argument' => $argument_type,
++            ]),
++            'help' => $help_text,
++            'argument' => [
++              'field' => $views_field,
++              'id' => $table_data[$views_field]['argument']['id'] . '_' . $argument_type,
++              'entity_type' => $field_storage->getTargetEntityTypeId(),
++              'field_name' => $field_storage->getName(),
++            ],
++            'group' => $group,
++          ];
++        }
+       }
+     }
+   }
+diff --git a/src/DateArgumentWrapper.php b/src/DateArgumentWrapper.php
+index dc13a04..a745152 100644
+--- a/src/DateArgumentWrapper.php
++++ b/src/DateArgumentWrapper.php
+@@ -116,7 +116,8 @@ class DateArgumentWrapper {
+ 
+   public function getGranularity() {
+     $plugin_id = $this->dateArg->getPluginId();
+-    $plugin_granularity = str_replace('datetime_', '', $plugin_id);
++    $plugin_granularity = str_replace('datetime_range_', '', $plugin_id);
++    $plugin_granularity = str_replace('datetime_', '', $plugin_granularity);
+     $plugin_granularity = str_replace('date_', '', $plugin_granularity);
+     switch ($plugin_granularity) {
+       case 'year_month':
+diff --git a/src/Plugin/Derivative/ViewsFieldTemplate.php b/src/Plugin/Derivative/ViewsFieldTemplate.php
+index 40a38d9..705f1a9 100644
+--- a/src/Plugin/Derivative/ViewsFieldTemplate.php
++++ b/src/Plugin/Derivative/ViewsFieldTemplate.php
+@@ -2,7 +2,6 @@
+ 
+ namespace Drupal\calendar\Plugin\Derivative;
+ 
+-
+ use Drupal\Core\Entity\EntityFieldManagerInterface;
+ use Drupal\Core\Entity\EntityTypeInterface;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
+@@ -143,13 +142,27 @@ class ViewsFieldTemplate implements ContainerDeriverInterface {
+     $field_storages = $this->field_manager->getFieldStorageDefinitions($entity_type->id());
+ 
+     foreach ($field_storages as $field_id => $field_storage) {
+-      if ($field_storage->getType() == 'datetime') {
++      $type = $field_storage->getType();
++      $field_definition = \Drupal::service('plugin.manager.field.field_type')->getDefinition($type);
++      $class = $field_definition['class'];
++      $classes = [];
++      $classes[$type] = [];
++      $classes[$type][] = $class;
++      while ($class !== FALSE) {
++        $classes[$type][] = get_parent_class($class);
++        $class = end($classes[$type]);
++      }
++      if (in_array("Drupal\datetime\Plugin\Field\FieldType\DateTimeItem", $classes[$type])) {
+         $entity_type_id = $entity_type->id();
+-        // Find better way to get table name.
+-        $field_table = $entity_type_id . '__' . $field_id;
+-        $field_table_data = $this->viewsData->get($field_table);
+-
+-        if (isset($field_table_data[$field_id])) {
++        $views_data = $this->viewsData->get();
++        foreach ($views_data as $key => $data) {
++          if (strstr($key, $field_id) && isset($data[$field_id])) {
++            $field_table = $key;
++            $field_table_data = $data;
++            break;
++          }
++        }
++        if (isset($field_table_data)) {
+           $derivative = [];
+           $field_info = $field_table_data[$field_id];
+           $derivative['field_id'] = $field_id;
+diff --git a/src/Plugin/views/argument/DatetimeRangeYearWeekDate.php b/src/Plugin/views/argument/DatetimeRangeYearWeekDate.php
+new file mode 100644
+index 0000000..1224dae
+--- /dev/null
++++ b/src/Plugin/views/argument/DatetimeRangeYearWeekDate.php
+@@ -0,0 +1,19 @@
++<?php
++
++namespace Drupal\calendar\Plugin\views\argument;
++
++use Drupal\datetime_range\Plugin\views\argument\DateRange;
++
++/**
++ * Argument handler for a day.
++ *
++ * @ViewsArgument("datetime_range_year_week")
++ */
++class DatetimeRangeYearWeekDate extends DateRange {
++
++  /**
++   * {@inheritdoc}
++   */
++  protected $argFormat = 'YW';
++
++}
+diff --git a/src/Plugin/views/row/Calendar.php b/src/Plugin/views/row/Calendar.php
+index a78fe61..17a7078 100644
+--- a/src/Plugin/views/row/Calendar.php
++++ b/src/Plugin/views/row/Calendar.php
+@@ -356,19 +356,20 @@ class Calendar extends RowPluginBase {
+ 
+     $data = CalendarHelper::dateViewFields($this->entityType);
+ 
+-//    $data['name'] = 'node_field_data.created_year';
++    $data = $data['name'];
+     $date_fields = [];
+     /** @var $handler \Drupal\views\Plugin\views\argument\Formula */
+     foreach ($this->view->getDisplay()->getHandlers('argument') as $handler) {
+       if ($handler instanceof Date) {
+         // Strip "_calendar" from the field name.
+         $fieldName = $handler->realField;
+-        if (!empty($data['alias'][$handler->table . '_' . $fieldName])) {
+-          $date_fields[$fieldName] = $data['alias'][$handler->table . '_' . $fieldName];
+-          $this->dateFields = $date_fields;
+-        }
++        $alias = $handler->table . '.' . $fieldName;
++        $info = $data[$alias];
++        $field_name  = str_replace(array('_value2', '_value'), '', $info['real_field_name']);
++        $date_fields[$field_name] = $info;
+         $this->dateArgument = $handler;
+ 
++        $this->dateFields = $date_fields;
+       }
+     }
+ //
+@@ -392,6 +393,16 @@ class Calendar extends RowPluginBase {
+       return [];
+     }
+ 
++    // unrelated to end date: this addresses issue where an entity on a calendar is duplicated
++    // if it has multiple entity references; ensure that the calendar entity is only displayed once
++    static $used = '';
++    if ($id != $used) {
++      $used = $id;
++    }
++    else {
++      return [];
++    }
++
+     // There could be more than one date field in a view so iterate through all
+     // of them to find the right values for this view result.
+     foreach ($this->dateFields as $field_name => $info) {
+@@ -421,49 +432,25 @@ class Calendar extends RowPluginBase {
+       $entity->date_id = [];
+       $item_start_date = NULL;
+       $item_end_date   = NULL;
+-      $granularity = 'second';
++      $granularity = 'month';
+       $increment = 1;
+ 
+       // @todo implement timezone support
+-      if ($info['is_field']) {
+-        // Should CalendarHelper::dateViewFields() be returning this already?
+-        $entity_field_name = str_replace('_value', '', $field_name);
+-        $field_definition = $entity->getFieldDefinition($entity_field_name);
+-
+-        if ($field_definition instanceof BaseFieldDefinition) {
+-          $storage_format = 'U';
+-        }
+-        else {
+-          $datetime_type = $field_definition->getSetting('datetime_type');
+-          if ($datetime_type === DateTimeItem::DATETIME_TYPE_DATE) {
+-            $storage_format = DATETIME_DATE_STORAGE_FORMAT;
+-          }
+-          else {
+-            $storage_format = DATETIME_DATETIME_STORAGE_FORMAT;
+-          }
+-        }
+-        $item_start_date = $item_end_date = \DateTime::createFromFormat($storage_format, $row->{$info['query_name']});
+-
+-//        $db_tz   = date_get_timezone_db($tz_handling, isset($item->$tz_field) ? $item->$tz_field : timezone_name_get($dateInfo->getTimezone()));
+-//        $to_zone = date_get_timezone($tz_handling, isset($item->$tz_field)) ? $item->$tz_field : timezone_name_get($dateInfo->getTimezone());
+-
+-
+-
+-        // @todo don't hardcode
+-//        $granularity = date_granularity_precision($cck_field['settings']['granularity']);
+-        $granularity = 'week';
+-//        $increment = $instance['widget']['settings']['increment'];
+-      }
+-      elseif ($entity->get($field_name)) {
++      if ($entity->hasField($field_name) && $entity->get($field_name)) {
+         $item = $entity->get($field_name)->getValue();
+         // @todo handle timezones
+ //        $db_tz   = date_get_timezone_db($tz_handling, isset($item->$tz_field) ? $item->$tz_field : timezone_name_get($dateInfo->getTimezone()));
+ //        $to_zone = date_get_timezone($tz_handling, isset($item->$tz_field) ? $item->$tz_field : timezone_name_get($dateInfo->getTimezone()));
+ //        $item_start_date = new dateObject($item, $db_tz);
+-        $item_start_date = new \DateTime();
+-        $item_start_date->setTimestamp($item[0]['value']);
+-        $item_end_date   = $item_start_date;
+-        $entity->date_id = ['calendar.' . $id . '.' . $field_name . '.0'];
++        $item_start_date = new \DateTime($item[0]['value']);
++
++        if (!empty($item[0]['end_value'])) {
++          $item_end_date = new \DateTime($item[0]['end_value']);
++        }
++        else {
++          $item_end_date = $item_start_date;
++        }
++        $entity->date_id = array('calendar.' . $id . '.' . $field_name . '.0');
+       }
+ 
+       // If we don't have a date value, go no further.
+@@ -492,7 +479,7 @@ class Calendar extends RowPluginBase {
+ 
+       // All calendar row plugins should provide a date_id that the theme can use.
+       // @todo implement
+-//      $event_container->date_id = $entity->date_id[0];
++      $event->date_id = $entity->date_id[0];
+ 
+       // We are working with an array of partially rendered items
+       // as we process the calendar, so we can group and organize them.
+@@ -546,8 +533,8 @@ class Calendar extends RowPluginBase {
+     $rows = [];
+ 
+     $dateInfo = $this->dateArgument->view->dateInfo;
+-//    $item_start_date = $event->date_start;
+-//    $item_end_date = $event->date_end;
++    $item_start_date = $event->getStartDate()->getTimestamp();
++    $item_end_date = $event->getEndDate()->getTimestamp();
+ //    $to_zone = $event->to_zone;
+ //    $db_tz = $event->db_tz;
+ //    $granularity = $event->granularity;
+@@ -558,9 +545,9 @@ class Calendar extends RowPluginBase {
+     // nodes so that we have a 'node' for each day that this item occupies in
+     // this view.
+     // @TODO make this work with the CalendarDateInfo object
+-//    $now = max($dateInfo->min_zone_string, $this->dateFormatter->format($event->getStartDate()->getTimestamp(), 'Y-m-d'));
+-//    $to = min($dateInfo->max_zone_string, $this->dateFormatter->format($event->getEndDate()->getTimestamp(), 'Y-m-d'));
+-    $now = $event->getStartDate()->format('Y-m-d');
++
++    $start = $event->getStartDate()->format('Y-m-d');
++    $now = $start;
+     $to = $event->getEndDate()->format('Y-m-d');
+     $next = new \DateTime();
+     $next->setTimestamp($event->getStartDate()->getTimestamp());
+@@ -589,23 +576,28 @@ class Calendar extends RowPluginBase {
+       $end = $this->dateFormatter->format($next->getTimestamp(), 'custom', 'Y-m-d H:i:s');
+ 
+       // Get start and end of item, formatted the same way.
+-      $item_start = $this->dateFormatter->format($event->getStartDate()->getTimestamp(), 'custom', 'Y-m-d H:i:s');
+-      $item_end = $this->dateFormatter->format($event->getEndDate()->getTimestamp(), 'custom', 'Y-m-d H:i:s');
++      $item_start = $this->dateFormatter->format($item_start_date, 'custom', 'Y-m-d H:i:s');
++      $item_end = $this->dateFormatter->format($item_end_date, 'custom', 'Y-m-d H:i:s');
+ 
+       // Get intersection of current day and the node value's duration (as
+       // strings in $to_zone timezone).
+       $start_string = $item_start < $start ? $start : $item_start;
+-      $entity->setStartDate(new \DateTime($start_string));
+       $end_string = !empty($item_end) ? ($item_end > $end ? $end : $item_end) : NULL;
+-      $entity->setEndDate(new \DateTime($end_string));
++      $entity->calendar_start_date = (new \DateTime($start_string));
++      $entity->calendar_end_date = (new \DateTime($end_string));
+ 
+       // @TODO don't hardcode granularity and increment
+-      $granularity = 'hour';
+-      $increment = 1;
+-      $entity->setAllDay(CalendarHelper::dateIsAllDay($entity->getStartDate()->format('Y-m-d H:i:s'), $entity->getEndDate()->format('Y-m-d H:i:s'), $granularity, $increment));
++      if ($now === $start || $now === $to) {
++        $granularity = 'second';
++        $increment = 1;
++        $entity->setAllDay(CalendarHelper::dateIsAllDay($entity->getStartDate()->format('Y-m-d H:i:s'), $entity->getEndDate()->format('Y-m-d H:i:s'), $granularity, $increment));
++      }
++      else {
++        $entity->setAllDay(TRUE);
++      }
+ 
+-      $calendar_start = new \DateTime();
+-      $calendar_start->setTimestamp($entity->getStartDate()->getTimestamp());
++      $calendar_start = $this->dateFormatter->format($entity->calendar_start_date->getTimestamp(), 'custom', 'Y-m-d H:i:s');
++      $calendar_end = $this->dateFormatter->format($entity->calendar_end_date->getTimestamp(), 'custom', 'Y-m-d H:i:s');
+ 
+ //      unset($entity->calendar_fields);
+       if (isset($entity) && (empty($calendar_start))) {
+@@ -614,13 +606,13 @@ class Calendar extends RowPluginBase {
+         unset($entity);
+       }
+       else {
+-//        $entity->date_id .= '.' . $position;
++        $entity->date_id .= '.' . $position;
+         $rows[] = $entity;
+         unset($entity);
+       }
+ 
+       $next->setTimestamp(strtotime('+1 second', $next->getTimestamp()));
+-      $now = $this->dateFormatter->format($next->getTimestamp(), 'Y-m-d');
++      $now = $this->dateFormatter->format($next->getTimestamp(), 'custom', 'Y-m-d');
+       $position++;
+     }
+     return $rows;
+@@ -699,5 +691,5 @@ class Calendar extends RowPluginBase {
+     ];
+   }
+ 
+-
+ }
++
+diff --git a/src/Plugin/views/style/Calendar.php b/src/Plugin/views/style/Calendar.php
+index f811ed0..d2e2838 100644
+--- a/src/Plugin/views/style/Calendar.php
++++ b/src/Plugin/views/style/Calendar.php
+@@ -538,9 +538,9 @@ class Calendar extends StylePluginBase {
+       /** @var \Drupal\calendar\CalendarEvent $event_info */
+       foreach ($events as $event_info) {
+ //        $event->granularity = $this->dateInfo->granularity;
+-        $item_start = $event_info->getStartDate()->format('Y-m-d');
+-        $item_end = $event_info->getEndDate()->format('Y-m-d');
+-        $time_start = $event_info->getStartDate()->format('H:i:s');
++        $item_start = $event_info->calendar_start_date->format('Y-m-d');
++        $item_end = $event_info->calendar_end_date->format('Y-m-d');
++        $time_start = $event_info->calendar_start_date->format('H:i:s');
+         $event_info->setRenderedFields($this->rendered_fields[$row_index]);
+         $items[$item_start][$time_start][] = $event_info;
+       }
+@@ -1134,7 +1134,7 @@ class Calendar extends StylePluginBase {
+                     // future events
+                     for ( $j = 0; $j < $row_diff; $j++) {
+                       $bucket[($bucket_row_count + $j) ] = [
+-                        'entry' => '&nbsp;',
++                        'entry' => '',
+                         'colspan' => 1,
+                         'rowspan' => 1,
+                         'filled' => TRUE,
+diff --git a/templates/calendar-day-overlap.html.twig b/templates/calendar-day-overlap.html.twig
+index cda564e..2f274f6 100644
+--- a/templates/calendar-day-overlap.html.twig
++++ b/templates/calendar-day-overlap.html.twig
+@@ -30,7 +30,6 @@
+  */
+ #}
+ <div class="calendar-calendar"><div class="day-view">
+-{# // Multi-day and all day events are not supported because Dates don't have end values
+ <div id="multi-day-container">
+   <table class="full">
+     <tbody>
+@@ -59,9 +58,7 @@
+     </tbody>
+   </table>
+ </div>
+-
+ <div class="header-body-divider">&nbsp;</div>
+-#}
+ <div id="single-day-container">
+   <table class="full">
+     <tbody>
+diff --git a/templates/calendar-day.html.twig b/templates/calendar-day.html.twig
+index 051c5c4..5123d99 100644
+--- a/templates/calendar-day.html.twig
++++ b/templates/calendar-day.html.twig
+@@ -47,7 +47,6 @@
+     </tr>
+   </thead>
+   <tbody>
+-    {# // All day and multi-day events not support in core DateTime module in Drupal 8
+     <tr>
+       <td class="{{ agenda_hour_class }}">
+          <span class="calendar-hour">
+@@ -70,7 +69,6 @@
+        </td>
+       {% endfor %}
+     </tr>
+-    #}
+     {% for hour in rows['items'] %}
+     <tr>
+       <td class="calendar-agenda-hour">
+diff --git a/templates/calendar-week-overlap.html.twig b/templates/calendar-week-overlap.html.twig
+index cb7926b..752bd5e 100644
+--- a/templates/calendar-week-overlap.html.twig
++++ b/templates/calendar-week-overlap.html.twig
+@@ -1,4 +1,4 @@
+-<?php
++{#
+ /**
+  * @file
+  * Template to display a view as a calendar week with overlapping items
+@@ -23,7 +23,7 @@
+  * $max_date_formatted: The maximum date for this calendar in the format YYYY-MM-DD HH:MM:SS.
+  * 
+  */
+-?>
++#}
+ <div class="calendar-calendar"><div class="week-view">
+   <div id="header-container">
+   <table class="full">
+@@ -41,7 +41,6 @@
+   </tbody>
+   </table>
+   </div>
+-    {# Multi-day and all day events are not supported because dates don't have end values yes
+   <div id="multi-day-container">
+   <table class="full">
+   <tbody>
+@@ -119,11 +118,10 @@
+       {% endfor %}
+       <td class="{{ col_class }}"><div class="inner">&nbsp;</div></td>
+      </tr>
+-  </thead> 
++  </thead>
+   </table>
+   </div>
+   <div class="header-body-divider">&nbsp;</div>
+-  #}
+   <div id="single-day-container">
+     <table class="full">
+       <tbody>
+@@ -154,7 +152,7 @@
+                 </div>
+               {% else %}
+                 <div class="{{ class }} calendar-agenda-items single-day">
+-                <div class="half-hour">&nbsp;</div>
++                  <div class="half-hour">&nbsp;</div>
+                   <div class="calendar item-wrapper">
+                     <div class="inner">
+                       {#{% if items[start_time]['values'] is not empty %}{{ dump(items[start_time]['values']) }}{% endif %}#}
+@@ -172,8 +170,8 @@
+                     </div>
+                   </div>
+                 </div>
+-                {% endif %}
+-              {% endfor %}
++              {% endif %}
++            {% endfor %}
+             </td>
+           {% endfor %}
+         </tr>

@@ -1,0 +1,23 @@
+uuid: afbe4304-42a3-42f3-b73a-bbd17f4f262d
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - taxonomy
+id: divisions
+label: Divisions
+type: 'canonical_entities:taxonomy_term'
+pattern: 'divisions/[term:name]'
+selection_criteria:
+  4cc93faf-0e06-4fe2-8084-b0dd267c88a3:
+    id: 'entity_bundle:taxonomy_term'
+    bundles:
+      division: division
+    negate: false
+    context_mapping:
+      taxonomy_term: taxonomy_term
+    uuid: 4cc93faf-0e06-4fe2-8084-b0dd267c88a3
+selection_logic: and
+weight: -5
+relationships: {  }

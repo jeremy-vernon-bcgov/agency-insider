@@ -1,0 +1,27 @@
+uuid: 9cbb4685-f986-4637-9044-a354b625d03c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.post
+  module:
+    - file
+id: node.post.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: post
+label: Attachments
+description: 'Attach files to the post.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

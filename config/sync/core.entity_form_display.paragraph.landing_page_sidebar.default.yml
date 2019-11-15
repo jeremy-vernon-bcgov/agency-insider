@@ -1,0 +1,25 @@
+uuid: 6cca058d-a31d-461d-9263-c3e0e1be9ada
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landing_page_sidebar.field_sidebar_content
+    - paragraphs.paragraphs_type.landing_page_sidebar
+  module:
+    - text
+id: paragraph.landing_page_sidebar.default
+targetEntityType: paragraph
+bundle: landing_page_sidebar
+mode: default
+content:
+  field_sidebar_content:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,30 @@
+uuid: 1c428b36-2eed-4d95-a3c9-aaf987bb0880
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.people
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap_barrio
+id: bootstrap_barrio_views_block__people_block_1
+theme: bootstrap_barrio
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:people-block_1'
+settings:
+  id: 'views_block:people-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

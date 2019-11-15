@@ -1,0 +1,28 @@
+uuid: 192f5ec1-5423-43d5-a6ad-411a33ab309b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_featured_photo
+    - media.type.image
+    - node.type.event_model
+id: node.event_model.field_media_featured_photo
+field_name: field_media_featured_photo
+entity_type: node
+bundle: event_model
+label: 'Featured photo'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

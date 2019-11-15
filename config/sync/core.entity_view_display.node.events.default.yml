@@ -1,0 +1,57 @@
+uuid: 55f595a3-76a2-4c22-906c-6b35c8b43af4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.events.body
+    - field.field.node.events.field_add_to_calendar
+    - field.field.node.events.field_event_date
+    - field.field.node.events.field_media_event_icon
+    - node.type.events
+  module:
+    - addtocalendar
+    - datetime_range
+    - text
+    - user
+id: node.events.default
+targetEntityType: node
+bundle: events
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_add_to_calendar:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: add_to_calendar
+    region: content
+  field_event_date:
+    weight: 4
+    label: inline
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  flag_bookmark:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_image: true
+  field_media_event_icon: true

@@ -1,0 +1,20 @@
+uuid: f8ba721d-a2b6-4c1e-a9e0-c6eeca4ef11d
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+  theme:
+    - bootstrap_barrio
+id: bootstrap_barrio_searchform
+theme: bootstrap_barrio
+region: top_header
+weight: -8
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility: {  }

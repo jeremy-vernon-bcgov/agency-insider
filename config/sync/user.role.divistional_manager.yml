@@ -1,0 +1,19 @@
+uuid: 55790f77-f1ff-4c93-bcdc-1997f2150a96
+langcode: en
+status: true
+dependencies: {  }
+id: divistional_manager
+label: 'Divisional Manager'
+weight: 4
+is_admin: null
+permissions:
+  - 'access files overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'add terms in division'
+  - 'create terms in division'
+  - 'delete media'
+  - 'edit terms in division'
+  - 'update any media'
+  - 'use text format full_html'
+  - 'view terms in division'

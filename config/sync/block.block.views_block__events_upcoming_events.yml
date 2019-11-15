@@ -1,0 +1,34 @@
+uuid: 33800122-c9a8-4c8d-851d-4221fb3ad2a4
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.events
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - agency_theme
+third_party_settings:
+  block_class:
+    classes: col-xs-12
+id: views_block__events_upcoming_events
+theme: agency_theme
+region: content
+weight: -5
+provider: null
+plugin: 'views_block:events-upcoming_events'
+settings:
+  id: 'views_block:events-upcoming_events'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

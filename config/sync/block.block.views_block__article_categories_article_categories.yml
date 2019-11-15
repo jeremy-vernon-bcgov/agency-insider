@@ -1,0 +1,30 @@
+uuid: 5a38ce12-7450-48e0-b1a1-7c39dd72a791
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.article_categories
+  module:
+    - system
+    - views
+  theme:
+    - agency_theme
+id: views_block__article_categories_article_categories
+theme: agency_theme
+region: sidebar_second
+weight: -13
+provider: null
+plugin: 'views_block:article_categories-article_categories'
+settings:
+  id: 'views_block:article_categories-article_categories'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: "/posts\r\n/posts/news-articles\r\n/posts/employee-announcements\r\n/posts/career-spotlights\r\n/posts/executive-messages"
+    negate: false
+    context_mapping: {  }

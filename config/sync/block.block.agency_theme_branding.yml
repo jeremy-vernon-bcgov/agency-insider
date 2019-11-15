@@ -1,0 +1,25 @@
+uuid: a1cb8cb8-ed72-4cac-9fcf-820d9e09ab39
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agency_theme
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: agency_theme_branding
+theme: agency_theme
+region: navigation
+weight: -15
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: false
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

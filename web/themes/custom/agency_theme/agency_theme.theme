@@ -1,0 +1,164 @@
+<?php
+
+/**
+ * @file
+ * Bootstrap sub-theme.
+ *
+ * Place your custom PHP code in this file.
+ */
+
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function agency_theme_preprocess_page(&$variables) {
+  $variables['container'] = theme_get_setting('bootstrap_barrio_fluid_container') ? 'container-fluid' : 'container';
+  // Check if landing page has a sidebar content.
+  if (!empty($variables['node'])) {
+    $node = $variables['node'];
+
+    if ($node->getType() == 'page') {
+      if (!$node->get('field_landing_sidebar')->isEmpty()) {
+        $variables['page']['sidebar_second']['optional_sidebar'] = $node->get('field_landing_sidebar')->view();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function agency_theme_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'search_block_form') {
+    $form['keys']['#attributes']['placeholder'] = t('Search');
+    $form['actions']['submit']['#prefix'] = '<i class="fa fa-search"></i>';
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_input__button().
+ */
+function agency_theme_preprocess_input__submit(&$variables) {
+  $poll_btns = [
+    'Vote',
+    'Cancel vote',
+    'View results',
+    'View poll',
+  ];
+
+  if (isset($variables['element'])) {
+    if (isset($variables['attributes'])
+        && $variables['attributes'] instanceof Attribute) {
+
+      if ($offset = $variables['attributes']->offsetGet('value')) {
+        if (in_array($offset->value(), $poll_btns)) {
+          $variables['attributes']->removeAttribute('class');
+          $variables['attributes']->addClass('btn-secondary');
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements HOOK_preprocess_calendar_page().
+ */
+function agency_theme_preprocess_calendar_pager(&$variables) {
+  $time_add = '01';
+  if (isset($variables['items'])) {
+    foreach ($variables['items'] as $key => $value) {
+      $url = reset($value);
+
+      if ($key === 'previous') {
+        if ($url instanceof Url && $url->isRouted()) {
+          $arg = $url->getRouteParameters();
+
+          if (isset($arg['arg_0'])) {
+            $arg = $arg['arg_0'];
+            $timestamp = strtotime($arg . $time_add);
+            $variables['items'][$key]['title'] = date('F Y', $timestamp);
+          }
+        }
+      }
+      elseif ($key === 'next') {
+        if ($url instanceof Url && $url->isRouted()) {
+          $arg = $url->getRouteParameters();
+
+          if (isset($arg['arg_0'])) {
+            $arg = $arg['arg_0'];
+            $timestamp = strtotime($arg . $time_add);
+            $variables['items'][$key]['title'] = date('F Y', $timestamp);
+          }
+        }
+      }
+    }
+  }
+
+}
+
+/**
+ * Implements HOOK_preprocess_input__button().
+ */
+function agency_theme_preprocess_calendar_header(&$variables) {
+  $arg = \Drupal::routeMatch()->getParameters()->get('arg_0');
+
+  if ($arg) {
+    $time_add = '01';
+    $timestamp = strtotime($arg . $time_add);
+    $variables['month_title'] = date('F Y', $timestamp);
+  }
+  else {
+    $variables['month_title'] = date('F Y', time());
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function agency_theme_preprocess_field(&$variables) {
+
+  if (isset($variables['element']) &&
+      $variables['element']['#field_name'] === 'created') {
+
+    if (isset($variables['element']['#object']) &&
+        $variables['element']['#object'] instanceof Node) {
+
+      $node = $variables['element']['#object'];
+      $variables['agency_created'] = date('l, F jS, Y', $node->created->value);
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestion_taxonomy_term().
+ */
+function agency_theme_theme_suggestions_taxonomy_term_alter(&$suggestions, $variables, $hook) {
+  $term = $variables['elements']['#taxonomy_term'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  if (!empty($term)) {
+    $suggestions[] = 'taxonomy_term__' . $sanitized_view_mode;
+    $suggestions[] = 'taxonomy_term__' . $term->bundle() . '__' . $sanitized_view_mode;
+    $suggestions[] = 'taxonomy_term__' . $term->id() . '__' . $sanitized_view_mode;
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page templates.
+ */
+function agency_theme_preprocess_breadcrumb(&$variables) {
+  // Set new title for broken breadcrumbs elements.
+  foreach ($variables['links'] as $key => $value) {
+    if ($value instanceof Link && $value->getText() === '{{ name }}') {
+      $url = $value->getUrl();
+      $name = str_replace("-", " ", end(explode("/", $url->getInternalPath())));
+      $variables['breadcrumb'][$key]['text'] = ucwords($name);
+    }
+  }
+}

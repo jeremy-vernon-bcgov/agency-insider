@@ -1,0 +1,22 @@
+uuid: 64ef8301-c149-40f0-b32c-f21337d842cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landing_page_sidebar.field_sidebar_content
+    - paragraphs.paragraphs_type.landing_page_sidebar
+  module:
+    - text
+id: paragraph.landing_page_sidebar.default
+targetEntityType: paragraph
+bundle: landing_page_sidebar
+mode: default
+content:
+  field_sidebar_content:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

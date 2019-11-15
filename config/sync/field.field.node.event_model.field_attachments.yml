@@ -1,0 +1,27 @@
+uuid: 66a1d959-b2cb-4b11-8440-368cfdacacdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_attachments
+    - node.type.event_model
+  module:
+    - file
+id: node.event_model.field_attachments
+field_name: field_attachments
+entity_type: node
+bundle: event_model
+label: Attachments
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc'
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

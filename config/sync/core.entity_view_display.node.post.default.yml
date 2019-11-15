@@ -1,0 +1,74 @@
+uuid: 48c54083-6dbe-4343-8754-a838907b6a22
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.post.field_attachments
+    - field.field.node.post.field_carousel_photo
+    - field.field.node.post.field_comments
+    - field.field.node.post.field_content
+    - field.field.node.post.field_introduction
+    - field.field.node.post.field_media_featured_photo
+    - field.field.node.post.field_media_post_thumbnail
+    - field.field.node.post.field_post_category
+    - field.field.node.post.field_subtitle
+    - node.type.post
+  module:
+    - comment
+    - text
+    - user
+id: node.post.default
+targetEntityType: node
+bundle: post
+mode: default
+content:
+  field_comments:
+    weight: 3
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_content:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_introduction:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_subtitle:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  flag_bookmark:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_subscribe:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_attachments: true
+  field_carousel_photo: true
+  field_image: true
+  field_media_featured_photo: true
+  field_media_post_thumbnail: true
+  field_post_category: true
+  links: true

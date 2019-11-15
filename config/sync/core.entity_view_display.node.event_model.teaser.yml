@@ -1,0 +1,30 @@
+uuid: 37b3a3e7-ff32-43d1-9dc8-4c0babac54ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.event_model.field_attachments
+    - field.field.node.event_model.field_comments
+    - field.field.node.event_model.field_content
+    - field.field.node.event_model.field_event_category
+    - field.field.node.event_model.field_media_featured_photo
+    - node.type.event_model
+  module:
+    - user
+id: node.event_model.teaser
+targetEntityType: node
+bundle: event_model
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_attachments: true
+  field_comments: true
+  field_content: true
+  field_event_category: true
+  field_media_featured_photo: true

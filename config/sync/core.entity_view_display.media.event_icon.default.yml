@@ -1,0 +1,28 @@
+uuid: 479e1be0-f38b-4db6-bb20-25482d16bc6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.event_icon.field_media_image
+    - media.type.event_icon
+  module:
+    - image
+id: media.event_icon.default
+targetEntityType: media
+bundle: event_icon
+mode: default
+content:
+  field_media_image:
+    weight: 0
+    label: visually_hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  name: true
+  thumbnail: true
+  uid: true

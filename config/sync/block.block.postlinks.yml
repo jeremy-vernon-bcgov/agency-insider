@@ -1,0 +1,41 @@
+uuid: 4118a50a-5ee3-449b-a8eb-0bc8692eaf5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.post-links
+  module:
+    - menu_block
+    - node
+    - system
+  theme:
+    - agency_theme
+id: postlinks
+theme: agency_theme
+region: sidebar_second
+weight: -11
+provider: null
+plugin: 'menu_block:post-links'
+settings:
+  id: 'menu_block:post-links'
+  label: Links
+  provider: menu_block
+  label_display: visible
+  level: 1
+  depth: 1
+  expand: 0
+  parent: 'post-links:'
+  suggestion: post_links
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      post: post
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: /posts
+    negate: false
+    context_mapping: {  }

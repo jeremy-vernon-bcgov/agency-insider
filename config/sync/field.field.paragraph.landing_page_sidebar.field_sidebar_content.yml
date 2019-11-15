@@ -1,0 +1,21 @@
+uuid: b0e7088f-debb-4012-afd7-834107e33838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sidebar_content
+    - paragraphs.paragraphs_type.landing_page_sidebar
+  module:
+    - text
+id: paragraph.landing_page_sidebar.field_sidebar_content
+field_name: field_sidebar_content
+entity_type: paragraph
+bundle: landing_page_sidebar
+label: 'Sidebar Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

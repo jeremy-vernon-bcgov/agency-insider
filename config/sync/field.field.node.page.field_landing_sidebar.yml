@@ -1,0 +1,34 @@
+uuid: 287e4e8a-eddb-4bc5-9374-c7f6fb33df65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_landing_sidebar
+    - node.type.page
+    - paragraphs.paragraphs_type.landing_page_sidebar
+  module:
+    - entity_reference_revisions
+id: node.page.field_landing_sidebar
+field_name: field_landing_sidebar
+entity_type: node
+bundle: page
+label: 'Sidebar (Optional)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      landing_page_sidebar: landing_page_sidebar
+    target_bundles_drag_drop:
+      landing_page_sidebar:
+        enabled: true
+        weight: 3
+      row:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

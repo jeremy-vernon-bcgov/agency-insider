@@ -1,0 +1,40 @@
+uuid: 66ab524d-09f0-4a17-8329-6e620539dc35
+langcode: en
+status: true
+dependencies: {  }
+id: we
+label: 'Web Manager'
+weight: 3
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access files overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'add terms in division'
+  - 'administer menu'
+  - 'administer taxonomy'
+  - 'administer users'
+  - 'create article content'
+  - 'create events content'
+  - 'create page content'
+  - 'create terms in division'
+  - 'delete any events content'
+  - 'delete media'
+  - 'delete own article content'
+  - 'delete own page content'
+  - 'edit any article content'
+  - 'edit any events content'
+  - 'edit any page content'
+  - 'edit terms in division'
+  - 'reorder terms in division'
+  - 'revert article revisions'
+  - 'revert events revisions'
+  - 'revert page revisions'
+  - 'update any media'
+  - 'use text format full_html'
+  - 'view article revisions'
+  - 'view events revisions'
+  - 'view page revisions'
+  - 'view post access counter'
+  - 'view terms in division'

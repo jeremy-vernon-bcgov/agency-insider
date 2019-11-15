@@ -1,0 +1,30 @@
+uuid: 04663e60-de2c-4119-8523-a461f6644f0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.list_of_teams
+  module:
+    - system
+    - views
+  theme:
+    - agency_theme
+id: views_block__list_of_teams_list_of_teams
+theme: agency_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: 'views_block:list_of_teams-list_of_teams'
+settings:
+  id: 'views_block:list_of_teams-list_of_teams'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '/team-members/*'
+    negate: false
+    context_mapping: {  }

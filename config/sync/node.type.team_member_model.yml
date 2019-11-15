@@ -1,0 +1,29 @@
+uuid: f993a0db-8951-457d-b2d2-bb371790185b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: false
+    publish_past_date: error
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: false
+    unpublish_required: false
+    unpublish_revision: false
+name: 'Team Member Model'
+type: team_member_model
+description: 'Add a new Team Member Model.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

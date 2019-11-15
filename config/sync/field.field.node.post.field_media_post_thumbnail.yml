@@ -1,0 +1,28 @@
+uuid: a0041895-7bc2-4954-bef6-6c95fc11fab0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_media_post_thumbnail
+    - media.type.image
+    - node.type.post
+id: node.post.field_media_post_thumbnail
+field_name: field_media_post_thumbnail
+entity_type: node
+bundle: post
+label: 'Post thumbnail'
+description: 'Displayed on the homepage Stay Connected section. Please use 1:1 images ratio, the images will be scaled and cropped to 150×150 pixels.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

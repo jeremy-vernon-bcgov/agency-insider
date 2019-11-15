@@ -1,0 +1,25 @@
+uuid: 122ae78f-fbfa-4b77-8a75-724eca7e2e98
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:2726e3a7-06c7-47d5-a39a-82df60e62a1e'
+  module:
+    - block_content
+  theme:
+    - agency_theme
+id: copyright
+theme: agency_theme
+region: footer
+weight: -8
+provider: null
+plugin: 'block_content:2726e3a7-06c7-47d5-a39a-82df60e62a1e'
+settings:
+  id: 'block_content:2726e3a7-06c7-47d5-a39a-82df60e62a1e'
+  label: Copyright
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

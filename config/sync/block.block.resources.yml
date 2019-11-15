@@ -1,0 +1,33 @@
+uuid: e4f73a8a-8786-451a-8664-dfb2e4d029aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.resources
+  module:
+    - menu_block
+    - system
+  theme:
+    - agency_theme
+id: resources
+theme: agency_theme
+region: sidebar_second
+weight: -8
+provider: null
+plugin: 'menu_block:resources'
+settings:
+  id: 'menu_block:resources'
+  label: Resources
+  provider: menu_block
+  label_display: visible
+  level: 1
+  depth: 0
+  expand: 0
+  parent: 'resources:'
+  suggestion: resources
+visibility:
+  request_path:
+    id: request_path
+    pages: '/divisions/*'
+    negate: false
+    context_mapping: {  }

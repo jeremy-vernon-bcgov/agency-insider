@@ -1,0 +1,189 @@
+/**
+ * General
+ */
+ body {
+	 background: #65e4f2; /* Old browsers */
+	 background: -moz-linear-gradient(top, #65e4f2 0%, #2989d8 70%, #207cca 89%, #1e5799 100%, #1e5799 100%) no-repeat; /* FF3.6-15 */
+	 background: -webkit-linear-gradient(top, #65e4f2 0%,#2989d8 70%,#207cca 89%,#1e5799 100%,#1e5799 100%) no-repeat; /* Chrome10-25,Safari5.1-6 */
+	 background: linear-gradient(to bottom, #65e4f2 0%,#2989d8 70%,#207cca 89%,#1e5799 100%,#1e5799 100%) no-repeat; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#65e4f2', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+	 height:100%;
+ }
+/* Overriding well backgrounds */
+.navbar-default,
+.well {
+    background-color: transparent;
+    border: 0px solid transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+/* Hiding stuff */
+.path-frontpage h1 {
+	display:none;
+}
+/*Menus*/
+.navbar-header {
+	display:block;
+	clear:both;
+	width:100%;
+}
+#block-mainnavigation {
+	background-color: #e3e3e3;
+	display:block;
+	width:70%;
+	float:left;
+}
+ul.sf-menu.sf-horizontal.sf-shadow ul, 
+ul.sf-menu.sf-vertical.sf-shadow ul, 
+ul.sf-menu.sf-navbar.sf-shadow ul ul {
+	opacity: 0.9;
+    background-color: #e3e3e3;
+    filter: alpha(opacity=60);
+}
+#block-quicklinks {
+	display:block;
+	float:left;
+	width:30%;
+}
+ul#superfish-quick-links {
+	opacity: 0.6;
+    background-color: #333333;
+    filter: alpha(opacity=60);
+}
+ul.superfish-quick-links a {color:#ffffff;}
+/*Frontpage*/
+
+
+
+/*Upcomong Events*/
+.block-views-blockevents-block-1 {
+	background:#e3e3e3;
+}
+#block-views-block-people-block-1 h2.block-title,
+.block-views-blockdivisions-block-1 h2.block-title,
+#block-quicklinks h2.block-title,
+.block-views-blockevents-block-1 h2.block-title {
+	background: #002E5B;
+	padding:15px;
+	margin:0;
+	color:#ffffff;
+	font-weight:normal;
+}
+.event-date{
+    display: block;
+    background: red;
+    padding: 5px 5px 0 5px;
+    color: #ffffff;
+    width: 45px;
+    text-align: center;
+    float:left;
+    margin:0 15px 15px 0;
+    clear:left;
+}
+.event-day {
+	font-weight: bold;
+	font-size: 22px;
+}
+.event-month {
+	text-transform: uppercase;
+	font-size: 14px;
+	border-top: #e3e3e3 1px solid;
+}
+.view-id-events.view-display-id-block_1 .views-field-title a {
+	color:#666666;
+	font-weight: bold;
+}
+.view-id-events.view-display-id-block_1 .views-field-body {
+	color:#999999;
+}
+.view-id-events.view-display-id-block_1 .views-row {
+    display: block;
+    float: left;
+    margin: 15px;
+    width: 200px;
+    background: #ffffff;
+    padding: 5px;
+    height: 100px;
+    position: relative;
+    box-shadow: #3333 2px 2px;
+}
+.views-field-field-add-to-calendar{
+	width:25px;
+	display:block;
+	position:absolute;
+	right:0;
+	bottom:0;
+}
+.addtocalendar {
+    position: inherit;
+    display: block;
+    background: transparent !important;
+    width: 25px !important;
+}
+.atc-style-blue .atcb-link, 
+.atc-style-blue .atcb-link:hover, 
+.atc-style-blue .atcb-link:active, 
+.atc-style-blue .atcb-link:focus {
+	background: #ffffff url(images/add-calendar.png) no-repeat;
+    display: block;
+    width: 25px;
+    height: 25px;
+    line-height: 1px;
+    font-size: 1px;
+    box-shadow: none;
+    border-radius: 0;
+    padding:0;
+}
+/*Slideshow*/
+#slick-views-news-block-1-1-slider .slick__slide .slide__caption {
+	opacity: 0.6;
+    background-color: #333333;
+    filter: alpha(opacity=60);
+    width: 100%;
+    color: #ffffff;
+    padding: 0 20px 10px;
+}
+#slick-views-news-block-1-1-slider .slick__slide .slide__title {
+	font-size:16px;
+	margin:0;
+}
+#slick-views-news-block-1-1-slider .slick__slide .slide__title a{
+	color:#ffffff;
+}
+.slick-dots {
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    display: block;
+    width: 100px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+}
+.slick-dots li button:before {
+    color: #ffffff;
+    opacity:1;
+}
+.slick-dots li.slick-active button:before {
+    color: #ff6d2c;
+}
+.slick-slide img {
+    padding: 0;
+    border-radius: 0;
+}
+/*Quick Links*/
+#block-quicklinks {
+	color:#ffffff;
+	opacity: 0.6;
+    background-color: #333333;
+    filter: alpha(opacity=60);
+    display:block;
+}
+/*Our Divisions*/
+.secondary.block-views-blockdivisions-block-1 .view-content {
+	background: url(images/divisions.png) no-repeat;
+	display:block;
+}
+
+/*# sourceMappingURL=theme.css.map */

@@ -1,0 +1,6 @@
+uuid: 3af47be8-fce5-4973-a20e-d76d5932144a
+langcode: en
+status: true
+dependencies: {  }
+id: division-short
+label: 'Divisional Manager Shortcuts'

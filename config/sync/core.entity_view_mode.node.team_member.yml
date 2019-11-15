@@ -1,0 +1,10 @@
+uuid: bbe74293-2c4b-4788-ac07-eb9fdd640bed
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.team_member
+label: 'Team Member'
+targetEntityType: node
+cache: true

@@ -1,0 +1,8 @@
+uuid: af23e74b-5306-4737-bdc4-cb0216ddf05c
+langcode: en
+status: true
+dependencies: {  }
+id: post-links
+label: 'Post links'
+description: ''
+locked: false

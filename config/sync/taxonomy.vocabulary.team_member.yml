@@ -1,0 +1,8 @@
+uuid: dca1c3ed-8923-4afa-8a75-08c3da82af90
+langcode: en
+status: true
+dependencies: {  }
+name: 'Team Member'
+vid: team_member
+description: ''
+weight: 0

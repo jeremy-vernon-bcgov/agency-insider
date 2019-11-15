@@ -1,0 +1,31 @@
+uuid: 0d3aa645-ac51-496d-a2c8-3080c67f512f
+langcode: en
+status: true
+dependencies: {  }
+name: our_people
+label: 'Our People'
+effects:
+  6da12f01-d2ec-49cd-8073-7ef5093544a8:
+    uuid: 6da12f01-d2ec-49cd-8073-7ef5093544a8
+    id: image_scale
+    weight: -10
+    data:
+      width: 150
+      height: null
+      upscale: false
+  8f9260ff-f376-4fd9-bea2-40b52009018d:
+    uuid: 8f9260ff-f376-4fd9-bea2-40b52009018d
+    id: image_crop
+    weight: -8
+    data:
+      width: 150
+      height: 150
+      anchor: center-top
+  d826f11d-008c-48a4-89b3-091112e3ce2b:
+    uuid: d826f11d-008c-48a4-89b3-091112e3ce2b
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 150
+      height: 150
+      anchor: center-center

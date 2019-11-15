@@ -1,0 +1,34 @@
+uuid: e5e64e8f-5b1f-48ff-b966-23fd415c95e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.post_listing
+  module:
+    - block_class
+    - system
+    - views
+  theme:
+    - agency_theme
+third_party_settings:
+  block_class:
+    classes: col-xs-12
+id: views_block__post_listing_last_post_staff_update
+theme: agency_theme
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:post_listing-last_post_staff_update'
+settings:
+  id: 'views_block:post_listing-last_post_staff_update'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

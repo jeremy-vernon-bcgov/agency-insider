@@ -1,0 +1,114 @@
+taxonomies:
+  division:
+    -
+      vid: division
+      tid: '1'
+      langcode: en
+      name: 'Executive Team'
+      description__value: "<p>This is where you add the page info</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '0'
+      uuid: 33c5e98c-6c06-45d6-a470-acf3755c337d
+    -
+      vid: division
+      tid: '2'
+      langcode: en
+      name: Finance
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 02534c29-b605-4ad0-88ec-704ea901e6dc
+    -
+      vid: division
+      tid: '3'
+      langcode: en
+      name: 'Business Performance'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 82f3abc6-29ef-45be-bd82-f8f96198abd6
+    -
+      vid: division
+      tid: '4'
+      langcode: en
+      name: 'Hiring and Service Operations'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 52767f91-cb9f-4ecf-9e0f-358ae0e2c896
+    -
+      vid: division
+      tid: '5'
+      langcode: en
+      name: 'Policy and Innovation'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 42bd3bb7-c308-4c6c-b35a-c0aded523411
+    -
+      vid: division
+      tid: '6'
+      langcode: en
+      name: 'Talent Management'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: 992bf604-9fea-4d99-ab17-4b7134419a57
+    -
+      vid: division
+      tid: '7'
+      langcode: en
+      name: 'Employee Relations and Workplace Health'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 83d9447e-61d7-4dba-8e69-373120873b0e
+    -
+      vid: division
+      tid: '8'
+      langcode: en
+      name: test
+      description__value: "<p>szscvasvsdfv</p>\r\n"
+      description__format: basic_html
+      weight: '0'
+      parent: '5'
+      uuid: 541d5ba5-1475-4373-9da8-8dcb70998e4b
+  post_category:
+    -
+      vid: post_category
+      tid: '9'
+      langcode: en
+      name: 'Post category 1'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5b09186c-d04e-498e-9c6e-ba8ce2b88ecd
+    -
+      vid: post_category
+      tid: '10'
+      langcode: en
+      name: 'Post category 2'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 340d6f51-7389-4ac3-b3c9-b65b4b4235a2
+    -
+      vid: post_category
+      tid: '11'
+      langcode: en
+      name: 'Post category 3'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7752b042-60a8-4fd5-87ee-c2971bd3a462
+  tags: {  }

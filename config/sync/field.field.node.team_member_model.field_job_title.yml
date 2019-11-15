@@ -1,0 +1,29 @@
+uuid: 4378e0ed-03ec-4fb4-9b3a-bcefbe60e929
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_job_title
+    - node.type.team_member_model
+    - taxonomy.vocabulary.job_title
+id: node.team_member_model.field_job_title
+field_name: field_job_title
+entity_type: node
+bundle: team_member_model
+label: 'Job title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      job_title: job_title
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

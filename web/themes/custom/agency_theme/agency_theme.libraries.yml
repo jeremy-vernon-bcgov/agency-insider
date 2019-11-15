@@ -1,0 +1,14 @@
+global-styling:
+  css:
+    theme:
+      'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css': { type: external, crossorigin: anonymous, integrity: sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T}
+      'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css': { type: external, crossorigin: anonymous}
+      css/BCSans.css: { weight:9998 }
+      css/style.css: { weight:9999 }
+  js:
+    'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js': { type: external, crossorigin: anonymous, integrity: sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q}
+    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js': { type: external, crossorigin: anonymous, integrity: sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl}
+    js/agency.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal

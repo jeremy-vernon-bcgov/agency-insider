@@ -1,0 +1,11 @@
+uuid: 3a95a5df-70e4-4731-86d9-3082df515950
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+id: media_type_image
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301

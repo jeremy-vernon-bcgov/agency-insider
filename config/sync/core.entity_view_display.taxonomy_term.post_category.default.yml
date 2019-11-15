@@ -1,0 +1,15 @@
+uuid: e2c96aa4-5474-49a8-9940-013639aed206
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.post_category.field_icon
+    - taxonomy.vocabulary.post_category
+id: taxonomy_term.post_category.default
+targetEntityType: taxonomy_term
+bundle: post_category
+mode: default
+content: {  }
+hidden:
+  description: true
+  field_icon: true

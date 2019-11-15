@@ -1,0 +1,25 @@
+uuid: b75bc40a-163c-478e-a3c5-3a6aabb2323a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+  module:
+    - block_content
+  theme:
+    - bootstrap_barrio
+id: bootstrap_barrio_backgroundheader
+theme: bootstrap_barrio
+region: header
+weight: 0
+provider: null
+plugin: 'block_content:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+settings:
+  id: 'block_content:2e31a505-f862-49cd-a8ab-89f3b294ee38'
+  label: 'Background Header'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

@@ -1,0 +1,9 @@
+uuid: 57bd723d-4248-4c75-a418-f754ea8581d2
+langcode: en
+status: true
+dependencies: {  }
+id: landing_page_sidebar
+label: 'Landing page sidebar'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

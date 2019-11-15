@@ -1,0 +1,25 @@
+uuid: 9f4dc4dc-63cf-43f9-886f-8f3c58d2adf2
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - agency_theme
+id: breadcrumbs
+theme: agency_theme
+region: content
+weight: -11
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: "<front>\r\n/node/103\r\n/node/50\r\n/node/129\r\n/node/126\r\n/node/122\r\n/node/139\r\n/node/138\r\n/node/69\r\n/node/140\r\n/node/147\r\n/node/63"
+    negate: true
+    context_mapping: {  }

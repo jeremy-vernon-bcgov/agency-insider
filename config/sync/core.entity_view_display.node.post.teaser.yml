@@ -1,0 +1,48 @@
+uuid: 909114be-6d08-43cf-9ffd-d84c5b063d66
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.post.field_attachments
+    - field.field.node.post.field_comments
+    - field.field.node.post.field_content
+    - field.field.node.post.field_introduction
+    - field.field.node.post.field_media_featured_photo
+    - field.field.node.post.field_media_post_thumbnail
+    - field.field.node.post.field_post_category
+    - field.field.node.post.field_subtitle
+    - node.type.post
+  module:
+    - user
+id: node.post.teaser
+targetEntityType: node
+bundle: post
+mode: teaser
+content:
+  flag_bookmark:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_subscribe:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_attachments: true
+  field_carousel_photo: true
+  field_comments: true
+  field_content: true
+  field_image: true
+  field_introduction: true
+  field_media_featured_photo: true
+  field_media_post_thumbnail: true
+  field_post_category: true
+  field_subtitle: true

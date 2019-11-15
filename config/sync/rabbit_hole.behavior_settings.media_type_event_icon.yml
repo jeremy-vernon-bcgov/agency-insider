@@ -1,0 +1,11 @@
+uuid: 58878602-f366-43a7-a0cb-f1dcb68281a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.event_icon
+id: media_type_event_icon
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301

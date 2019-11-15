@@ -1,0 +1,15 @@
+uuid: 6b6744f0-eb61-4633-9285-f03ee210b2af
+langcode: en
+status: true
+dependencies: {  }
+name: homepage_carousel
+label: 'Homepage carousel (650×800)'
+effects:
+  a4e07177-0d4a-47b1-81f8-37681dece6e3:
+    uuid: a4e07177-0d4a-47b1-81f8-37681dece6e3
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 650
+      height: 800
+      anchor: center-center

@@ -1,0 +1,10 @@
+uuid: 9b6ad44d-ab2a-408c-955f-749219037ea1
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.original_image
+label: 'Original Image'
+targetEntityType: media
+cache: true

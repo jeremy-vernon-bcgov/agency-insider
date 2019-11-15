@@ -1,0 +1,38 @@
+uuid: f9bb08d8-a7aa-40ff-86cf-05302f674357
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.poll.body
+    - field.field.node.poll.field_poll
+    - node.type.poll
+  module:
+    - text
+    - user
+id: node.poll.default
+targetEntityType: node
+bundle: poll
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_poll:
+    weight: 102
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
