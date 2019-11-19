@@ -1,0 +1,15 @@
+uuid: 783c405e-efac-49fe-bf9c-592b36f2d853
+name: 'BC Public Service Agency'
+mail: tssbcsdo@telus.com
+slogan: 'BC Public Service Agency'
+page:
+  403: ''
+  404: ''
+  front: /node/21
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI
+mail_notification: ''

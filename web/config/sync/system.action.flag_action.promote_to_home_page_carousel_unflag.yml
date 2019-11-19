@@ -1,0 +1,15 @@
+uuid: 68359b17-5d61-43eb-9c1b-b4c1117bea89
+langcode: en
+status: true
+dependencies:
+  config:
+    - flag.flag.promote_to_home_page_carousel
+  module:
+    - flag
+id: flag_action.promote_to_home_page_carousel_unflag
+label: 'Unflag this item'
+type: node
+plugin: 'flag_action:promote_to_home_page_carousel_unflag'
+configuration:
+  flag_id: promote_to_home_page_carousel
+  flag_action: unflag

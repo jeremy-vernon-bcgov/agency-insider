@@ -1,0 +1,19 @@
+idir_ftp_location: ftp.dir.gov.bc.ca
+idir_login_name: psa
+idir_login_password: Men@W0rk
+idir_filename: idir.tsv
+form_build_id: form-rPyYZCxgcsvvoFZw56xf4nZQJaz-yK9wmFMR8J5KjQU
+form_token: Makk3EYPY_C4BNz-C-3tuLeI7dycfhZNhJ27HTtK46A
+form_id: atwork_idir_update_admin_settings_form
+op: 'Save configuration'
+action: TransactionType
+name: Username
+pass: None
+mail: Email
+login: Username
+init: Email
+customer_profiles: None
+user_picture: None
+field_full_name: Displayname
+commerce_remote_id: None
+field_user_guid: GUID

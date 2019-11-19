@@ -1,0 +1,45 @@
+uuid: 72b3483b-ae22-4431-bbd9-9c0fc5a42ae8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access checkout'
+  - 'access comments'
+  - 'access content'
+  - 'access in-place editing'
+  - 'access media overview'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'access user profiles'
+  - 'create audio media'
+  - 'create file media'
+  - 'create image media'
+  - 'create media'
+  - 'create video media'
+  - 'delete any audio media'
+  - 'delete media'
+  - 'delete own audio media'
+  - 'delete own file media'
+  - 'delete own image media'
+  - 'delete own video media'
+  - 'edit own file media'
+  - 'edit own image media'
+  - 'edit own video media'
+  - 'opt-in or out of google analytics tracking'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'subscribe to newsletters'
+  - 'update any media'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'view media'
+  - 'view paragraph content landing_page_sidebar'
+  - 'view terms in division'
+  - 'view terms in team_member'
