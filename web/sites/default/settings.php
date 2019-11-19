@@ -769,32 +769,32 @@ $settings['entity_update_batch_size'] = 50;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $databases['default']['default'] = array (
-  'database' => 'gbcagencyprd',
-  'username' => 'dbadmin',
-  'password' => '2018dbadmin!',
+  'database' => 'agency',
+  'username' => 'root',
+  'password' => 'root',
   'prefix' => '',
   'host' => '127.0.0.1',
-  'port' => '6446',
+  'port' => '3306',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
   'collation' => 'utf8mb4_general_ci',
 );
 $config_directories['sync'] = 'sites/default/files/config_kqJsxL_ZsOWhHHlrJ3v79H69Bvd-_pNv3eU6gmTPz-ZJH9Wk_JPVjajEVfbymd90IVnuxkCuLw/sync';
 
-$settings['http_client_config']['proxy']['http'] = '10.20.96.181:80';
-$settings['http_client_config']['proxy']['https'] = '10.20.96.181:80';
+#$settings['http_client_config']['proxy']['http'] = '10.20.96.181:80';
+#$settings['http_client_config']['proxy']['https'] = '10.20.96.181:80';
 #$settings['http_client_config']['proxy'] = '10.20.96.181:80';
-$settings['http_client_config']['proxy']['no'] = ['127.0.0.1', 'localhost', 'agency.gww.gov.bc.ca','bcpsa.gww.gov.bc.ca',  '10.20.99.53','gbcawpweb4','gbcawpweb5'];
+#$settings['http_client_config']['proxy']['no'] = ['127.0.0.1', 'localhost', 'agency.gww.gov.bc.ca','bcpsa.gww.gov.bc.ca',  '10.20.99.53','gbcawpweb4','gbcawpweb5'];
 
-$settings['reverse_proxy'] = TRUE;
-$settings['reverse_proxy_addresses'] = ['10.20.99.254'];
+#$settings['reverse_proxy'] = TRUE;
+#$settings['reverse_proxy_addresses'] = ['10.20.99.254'];
 
-$settings['trusted_host_patterns'] = [
-  '^agency\.gww\.gov\.bc\.ca$', '^bcpsa\.gww\.gov\.bc\.ca$'
-];
+#$settings['trusted_host_patterns'] = [
+#  '^agency\.gww\.gov\.bc\.ca$', '^bcpsa\.gww\.gov\.bc\.ca$'
+#];
 
-$_SERVER['HTTPS'] = 'on';
-$conf['https'] = TRUE;
+#$_SERVER['HTTPS'] = 'on';
+#$conf['https'] = TRUE;
 #$base_url = 'https://pbeta.gww.gov.bc.ca';
-$cookie_domain = '.bcpsa.gww.gov.bc.ca';
+#$cookie_domain = '.bcpsa.gww.gov.bc.ca';
 
