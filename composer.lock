@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4fb91ff47cedc06ca84b6bb6c9926277",
+    "content-hash": "329bd737367677680739c93e2f3ec6d3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -261,50 +261,6 @@
                 "postal"
             ],
             "time": "2019-10-21T14:31:17+00:00"
-        },
-        {
-            "name": "commerceguys/intl",
-            "version": "v1.0.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/commerceguys/intl.git",
-                "reference": "6a8c7a8da189d51856b642a61aeb8ae5114fec6c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/commerceguys/intl/zipball/6a8c7a8da189d51856b642a61aeb8ae5114fec6c",
-                "reference": "6a8c7a8da189d51856b642a61aeb8ae5114fec6c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "1.*",
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "CommerceGuys\\Intl\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Bojan Zivanovic"
-                }
-            ],
-            "description": "Internationalization library powered by CLDR data.",
-            "time": "2019-10-22T10:40:46+00:00"
         },
         {
             "name": "composer/installers",
@@ -3159,83 +3115,6 @@
             }
         },
         {
-            "name": "drupal/commerce",
-            "version": "2.13.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/commerce.git",
-                "reference": "8.x-2.13"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/commerce-8.x-2.13.zip",
-                "reference": "8.x-2.13",
-                "shasum": "821236987a331a7d8031e8c14b64a72a7a6722d5"
-            },
-            "require": {
-                "commerceguys/intl": "^1.0.0",
-                "drupal/address": "^1.6",
-                "drupal/core": "^8.6",
-                "drupal/entity": "^1.0-rc2",
-                "drupal/entity_reference_revisions": "~1.0",
-                "drupal/inline_entity_form": "^1.0-rc1",
-                "drupal/profile": "~1.0",
-                "drupal/state_machine": "^1.0-rc1"
-            },
-            "require-dev": {
-                "drupal/commerce_cart": "*",
-                "drupal/commerce_order": "*",
-                "drupal/commerce_payment": "*",
-                "drupal/commerce_price": "*",
-                "drupal/commerce_product": "*",
-                "drupal/commerce_store": "*",
-                "drupal/entity_reference_revisions": "*",
-                "drupal/profile": "*",
-                "drupal/state_machine": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-2.x": "2.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-2.13",
-                    "datestamp": "1567123385",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "bojanz",
-                    "homepage": "https://www.drupal.org/user/86106"
-                },
-                {
-                    "name": "jsacksick",
-                    "homepage": "https://www.drupal.org/user/972218"
-                },
-                {
-                    "name": "mglaman",
-                    "homepage": "https://www.drupal.org/user/2416470"
-                },
-                {
-                    "name": "rszrama",
-                    "homepage": "https://www.drupal.org/user/49344"
-                }
-            ],
-            "description": "Drupal Commerce is a flexible eCommerce solution.",
-            "homepage": "http://drupal.org/project/commerce",
-            "support": {
-                "source": "https://git.drupalcode.org/project/commerce"
-            }
-        },
-        {
             "name": "drupal/console",
             "version": "1.9.4",
             "source": {
@@ -4894,20 +4773,20 @@
         },
         {
             "name": "drupal/mailsystem",
-            "version": "4.1.0",
+            "version": "4.2.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/mailsystem.git",
-                "reference": "8.x-4.1"
+                "reference": "8.x-4.2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/mailsystem-8.x-4.1.zip",
-                "reference": "8.x-4.1",
-                "shasum": "318b87f1fdf96e6db30b04a98108af02a0fc3dcc"
+                "url": "https://ftp.drupal.org/files/projects/mailsystem-8.x-4.2.zip",
+                "reference": "8.x-4.2",
+                "shasum": "51d3f4831cdc3fd2748efc750d4946ddb5b50c3c"
             },
             "require": {
-                "drupal/core": "^8.0.5"
+                "drupal/core": "^8.7.7 || ^9"
             },
             "type": "drupal-module",
             "extra": {
@@ -4915,8 +4794,8 @@
                     "dev-4.x": "4.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-4.1",
-                    "datestamp": "1467993646",
+                    "version": "8.x-4.2",
+                    "datestamp": "1574194688",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -6220,101 +6099,6 @@
             "homepage": "https://www.drupal.org/project/slick_views",
             "support": {
                 "source": "https://git.drupalcode.org/project/slick_views"
-            }
-        },
-        {
-            "name": "drupal/state_machine",
-            "version": "1.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupalcode.org/project/state_machine.git",
-                "reference": "8.x-1.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/state_machine-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "bea94c4def643f60d3134f9c5d8495ddb56c93dd"
-            },
-            "require": {
-                "drupal/core": "~8.0"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1542124077",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Brandonian",
-                    "homepage": "https://www.drupal.org/user/77766"
-                },
-                {
-                    "name": "Elijah Lynn",
-                    "homepage": "https://www.drupal.org/user/353190"
-                },
-                {
-                    "name": "arithmetric",
-                    "homepage": "https://www.drupal.org/user/162305"
-                },
-                {
-                    "name": "bojanz",
-                    "homepage": "https://www.drupal.org/user/86106"
-                },
-                {
-                    "name": "das-peter",
-                    "homepage": "https://www.drupal.org/user/762870"
-                },
-                {
-                    "name": "e2thex",
-                    "homepage": "https://www.drupal.org/user/189123"
-                },
-                {
-                    "name": "ericduran",
-                    "homepage": "https://www.drupal.org/user/244460"
-                },
-                {
-                    "name": "fmitchell",
-                    "homepage": "https://www.drupal.org/user/213574"
-                },
-                {
-                    "name": "indytechcook",
-                    "homepage": "https://www.drupal.org/user/245817"
-                },
-                {
-                    "name": "robeano",
-                    "homepage": "https://www.drupal.org/user/67660"
-                },
-                {
-                    "name": "stevector",
-                    "homepage": "https://www.drupal.org/user/179805"
-                },
-                {
-                    "name": "timcosgrove",
-                    "homepage": "https://www.drupal.org/user/118452"
-                },
-                {
-                    "name": "zroger",
-                    "homepage": "https://www.drupal.org/user/67977"
-                }
-            ],
-            "description": "Provides code-driven workflow functionality.",
-            "homepage": "https://www.drupal.org/project/state_machine",
-            "support": {
-                "source": "https://git.drupalcode.org/project/state_machine"
             }
         },
         {
@@ -12706,16 +12490,16 @@
         },
         {
             "name": "sebastian/environment",
-            "version": "4.2.2",
+            "version": "4.2.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "f2a2c8e1c97c11ace607a7a667d73d47c19fe404"
+                "reference": "464c90d7bdf5ad4e8a6aea15c091fec0603d4368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/f2a2c8e1c97c11ace607a7a667d73d47c19fe404",
-                "reference": "f2a2c8e1c97c11ace607a7a667d73d47c19fe404",
+                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/464c90d7bdf5ad4e8a6aea15c091fec0603d4368",
+                "reference": "464c90d7bdf5ad4e8a6aea15c091fec0603d4368",
                 "shasum": ""
             },
             "require": {
@@ -12755,7 +12539,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2019-05-05T09:05:15+00:00"
+            "time": "2019-11-20T08:46:58+00:00"
         },
         {
             "name": "sebastian/exporter",
