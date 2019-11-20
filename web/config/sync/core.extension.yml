@@ -93,9 +93,6 @@ module:
   simple_sitemap_engines: 0
   simplenews: 0
   sitemap: 0
-  slick: 0
-  slick_ui: 0
-  slick_views: 0
   state_machine: 0
   statistics: 0
   structure_sync: 0
