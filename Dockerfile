@@ -22,10 +22,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         pdo_mysql \
         zip \
         ; \
-    \
-
 WORKDIR /var/www/html
-
 RUN set -eux; \
     git clone -b fully-cooked https://github.com/Work-Webteam/agency-insider.git; \
     chown -R www-data:www-data sites modules themes
