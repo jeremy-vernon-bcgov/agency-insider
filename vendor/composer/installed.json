@@ -3670,7 +3670,9 @@
                     "[web-root]/themes/README.txt": "assets/scaffold/files/themes.README.txt"
                 }
             },
-            "patches_applied": []
+            "patches_applied": {
+                "Call to a member function transformDimensions() on null in template_preprocess": "https://www.drupal.org/files/issues/2018-04-04/2957368_0.patch"
+            }
         },
         "installation-source": "dist",
         "autoload": {
